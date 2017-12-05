@@ -42,6 +42,12 @@ class StoPy:
 		except:
 			return self.handleError("Error Inserting")
 #read functionality	
+	#read data by id
+	def readLatest(self, collection, id, api_key=False ):
+		headers = self.customHeaders( api_key )
+		uri = self.uri + "/" + str(collection) + "/id/" + str(id) + "/"
+		return self.getData(uri, headers, "Error Fetching Last Data")
+
 	#read data descending
 	def readLatest(self, collection, owner, limit=False, api_key=False ):
 		headers = self.customHeaders( api_key )
