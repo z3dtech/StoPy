@@ -19,7 +19,7 @@ from StoPy import StoPy
 ## Initiate
 
 ```python
-sto = StoPy.StoPy( server='127.0.0.1', port='3000', api_key='api_key_here', protocol='https' ) # enter your auth info here
+sto = StoPy.StoPy( server='127.0.0.1', api_key='api_key_here', port='3000', protocol='https' ) # enter your auth info here
 collection = 'yourcollection' #often a type of data to be stored/fetched
 owner = 'yourowner' # often a userid
 ```

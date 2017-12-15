@@ -5,7 +5,7 @@ from urlparse import urlparse
 
 class StoPy:
 #constructor
-	def __init__(self, server, api_key, port=443, protocol="https", version = "v1"):
+	def __init__(self, server, api_key, port=False, protocol="https", version = "v1"):
 		self.server = server
 		self.port = port
 		self.api_key = api_key
@@ -14,8 +14,12 @@ class StoPy:
 		serverParse = urlparse( server )
 		if serverParse.scheme != '':
 			self.protocol = serverParse.scheme
-		if serverParse.port != '':
+		if serverParse.port != '' and str(serverParse.port) != 'None' and port == False:
 			self.port = serverParse.port
+		if self.port == False and self.protocol == "https":
+			self.port = 443
+		if self.port == False and self.protocol == "http":
+			self.port = 80
 		self.connected = False
 		while self.connected != True:
 			try:

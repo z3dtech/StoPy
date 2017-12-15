@@ -2,7 +2,7 @@
 import requests
 import json
 import random
-import StoPy
+from StoPy import *
 
 try:
     input = raw_input
@@ -11,11 +11,9 @@ except NameError:
     
 print( "Server: " )
 server = str(input())
-print( "Port: " )
-port = int(input())
 print( "API Key: " )
 api_key = str(input())
-x = StoPy( server, port, api_key )
+x = StoPy( server, api_key )
 
 print( "Collection: " )
 collection = str(input())
